@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="myLua" default="dist" basedir=".">
+    <description>
+        run myLua
+    </description>
+    <!-- set global properties for this build -->
+    <property name="openresty-home" location="D:\openresty\openresty-1.21.4.1-win64"/>
+    <property name="conf" location="${basedir}/conf"/>
+    <property name="src" location="${basedir}/src/lua"/>
+    <property name="lib" location="${basedir}/src/lualib"/>
+    <property name="target-conf" location="${openresty-home}/conf"/>
+    <property name="target-src" location="${openresty-home}/lua"/>
+    <property name="target-lib" location="${openresty-home}/lualib"/>
+
+    <echo>######开发版本的ant配置#####</echo>
+
+    <target name="dist" depends="" description="generate the distribution" >
+        <echo>复制安装文件</echo>
+        <copy todir="${target-conf}" overwrite="true">
+            <fileset dir="${conf}"></fileset>
+        </copy>
+        <copy todir="${target-src}" overwrite="true">
+            <fileset dir="${src}"></fileset>
+        </copy>
+        <copy todir="${target-lib}" overwrite="true">
+            <fileset dir="${lib}"></fileset>
+        </copy>
+    </target>
+
+</project>
